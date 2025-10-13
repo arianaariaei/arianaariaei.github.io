@@ -1,67 +1,232 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Projects & Presentations</title>
-  <link rel="stylesheet" href="./assets/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Presentations - Ariana Ariaei</title>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <!-- Shared navigation will be injected here -->
-  <div id="nav"></div>
-  <script>
-    (async function loadNav(){
-      const target = document.getElementById('nav');
-      try {
-        const res = await fetch('./assets/nav.html', { cache: 'no-store' });
-        target.innerHTML = await res.text();
-        const map = {
-          "": "nav-home",
-          "index.html": "nav-home",
-          "cv.html": "nav-cv",
-          "transcript.html": "nav-transcript",
-          "projects.html": "nav-projects"
-        };
-        const path = location.pathname.split('/').pop();
-        const id = map[path ?? ""] || "nav-projects";
-        const el = document.getElementById(id);
-        if (el) el.setAttribute("aria-current", "page");
-      } catch(e) { console.error("Failed to load nav:", e); }
-    })();
-  </script>
+    <div id="nav-placeholder"></div>
+    
+    <main class="container">
+        <h1>Projects & Presentations</h1>
 
-  <main class="container">
-    <div class="card">
-      <h1>Projects & Presentations</h1>
-      <p class="meta">A selection of recent work. Each card can link to GitHub, a demo, or slides.</p>
-    </div>
+        <section class="projects-section">
+            <h2>Research Projects</h2>
+            
+            <div class="project-card">
+                <h3>The Role of Machine Learning in Diagnosis of Acute Occlusion Myocardial Infarction in Presence of Left Bundle Branch Block (LBBB)</h3>
+                <p class="project-meta">In Progress | Medical AI & Healthcare</p>
+                <p class="project-description">
+                    Detecting myocardial infarction in the presence of LBBB is a challenging task even for experienced clinicians. 
+                    This research aims to integrate AI and machine learning algorithms to automate the diagnostic process and potentially 
+                    discover novel criteria for accurate detection. The project focuses on developing deep learning models that can analyze 
+                    ECG signals and identify subtle patterns that indicate acute myocardial infarction, even when complicated by the 
+                    presence of Left Bundle Branch Block.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">Medical Imaging</span>
+                    <span class="tag">Healthcare AI</span>
+                    <span class="tag">ECG Analysis</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
 
-    <section class="grid cols-2">
-      <article class="card project">
-        <h2>Project A</h2>
-        <p>One-paragraph description of what it does and why it’s interesting.</p>
-        <p class="meta">Tech: React, Flask</p>
-        <p>
-          <a class="btn" href="https://github.com/USERNAME/REPO" target="_blank" rel="noopener">Code</a>
-          <a class="btn" href="https://example.com/demo" target="_blank" rel="noopener">Demo</a>
-        </p>
-      </article>
+            <div class="project-card">
+                <h3>AI-Driven Multimodal Analysis of Stress Responses in Virtual Reality Simulations</h3>
+                <p class="project-meta">In Progress | Virtual Reality & Multimodal AI</p>
+                <p class="project-description">
+                    This project involves creating a stressful simulation using the Unity game engine and virtual reality (VR). 
+                    Participants' multimodal data — including physiological signals (EEG, ECG, EMG, etc.), facial expressions, postures, 
+                    and decision-making patterns — are monitored. The collected data will be analyzed using AI and large language models 
+                    (LLMs) to uncover correlations between stress, physiological responses, and behavioral outcomes. This research has 
+                    potential applications in mental health assessment, stress management training, and understanding human behavior under 
+                    high-pressure situations.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Virtual Reality</span>
+                    <span class="tag">Unity Engine</span>
+                    <span class="tag">Multimodal AI</span>
+                    <span class="tag">Large Language Models</span>
+                    <span class="tag">Physiological Signals</span>
+                    <span class="tag">Behavioral Analysis</span>
+                    <span class="tag">C#</span>
+                </div>
+            </div>
+        </section>
 
-      <article class="card project">
-        <h2>Project B</h2>
-        <p>Brief description and your role/contribution.</p>
-        <p class="meta">Tech: PyTorch, Lightning</p>
-        <p>
-          <a class="btn" href="https://github.com/USERNAME/REPO2" target="_blank" rel="noopener">Code</a>
-          <a class="btn" href="./docs/presentation-b.pdf">Slides</a>
-        </p>
-      </article>
+        <section class="projects-section">
+            <h2>Academic Projects</h2>
+            
+            <div class="project-card">
+                <h3>Scam Sleuth: AI-Powered Scam Reporting and Detection Platform</h3>
+                <p class="project-meta">2024-2025 | Full-Stack Web Development & AI</p>
+                <p class="project-description">
+                    Designed and implemented a platform for detecting and reporting scam projects, featuring secure user authentication, 
+                    an AI-powered website trustworthiness checker, and an admin dashboard for managing reports and publishing informative 
+                    blog posts. Users can submit scam reports, analyze suspicious URLs, and engage through comments. The platform utilizes 
+                    machine learning algorithms to assess website credibility based on various factors including domain age, SSL certificates, 
+                    content analysis, and user reports. This project combines web security principles with AI to help protect users from 
+                    online scams and phishing attempts.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Full-Stack Development</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Web Security</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">User Authentication</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/arianaariaei" target="_blank">GitHub</a>
+                </div>
+            </div>
 
-      <!-- Duplicate these blocks for more items -->
-    </section>
-  </main>
+            <div class="project-card">
+                <h3>Tslator: A Compiler for TSLANG</h3>
+                <p class="project-meta">2025 | Compiler Design</p>
+                <p class="project-description">
+                    Developed a compiler for the educational C-like language TSLANG under the supervision of Dr. A. Gholami Rudi. 
+                    The project implemented lexical analysis, parsing, semantic analysis, and intermediate code generation using Python and PLY. 
+                    Key features include support for basic data types, functions, arrays, conditionals, loops, and string handling, with an 
+                    Abstract Syntax Tree, scoped symbol tables, type checking, and IR code generation. This comprehensive project demonstrates 
+                    deep understanding of compiler architecture and the compilation process from source code to intermediate representation.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Compiler Design</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">PLY</span>
+                    <span class="tag">Lexical Analysis</span>
+                    <span class="tag">Parsing</span>
+                    <span class="tag">Semantic Analysis</span>
+                    <span class="tag">AST</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/arianaariaei" target="_blank">GitHub</a>
+                </div>
+            </div>
 
-  <footer><div class="container">© <span id="y"></span> Your Name</div></footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+            <div class="project-card">
+                <h3>PyThreadServe: Multi-Process HTTP/1.0 Server with Concurrency Control</h3>
+                <p class="project-meta">2025 | Systems Programming & Network Programming</p>
+                <p class="project-description">
+                    Implemented a lightweight HTTP/1.0 server in Python with multi-process architecture, worker processes, and thread pooling. 
+                    The server supports GET and POST requests, round-robin load balancing, and concurrency management with a cap on simultaneous 
+                    POST requests. Additional features include thread-safe file operations, directory traversal protection, and comprehensive 
+                    request logging. This project showcases advanced understanding of concurrent programming, network protocols, and server 
+                    architecture design patterns.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Systems Programming</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">HTTP Server</span>
+                    <span class="tag">Multi-threading</span>
+                    <span class="tag">Concurrency</span>
+                    <span class="tag">Network Programming</span>
+                    <span class="tag">Load Balancing</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/arianaariaei" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="presentations-section">
+            <h2>Teaching Experience</h2>
+            
+            <div class="presentation-card">
+                <h3>Teaching Assistant - Principles of Compiler Design</h3>
+                <p class="presentation-meta">
+                    <strong>Babol Noshirvani University of Technology</strong> | 2025
+                </p>
+                <p class="presentation-description">
+                    Served as teaching assistant for the Principles of Compiler Design course under the supervision of Dr. A. Gholami Rudi. 
+                    Responsibilities included conducting recitation sessions, helping students understand complex compiler concepts such as 
+                    lexical analysis, parsing, semantic analysis, and code generation. Assisted students with their compiler implementation 
+                    projects, graded assignments, and provided one-on-one guidance during office hours.
+                </p>
+            </div>
+
+            <div class="presentation-card">
+                <h3>Teaching Assistant - Applied Linear Algebra</h3>
+                <p class="presentation-meta">
+                    <strong>Babol Noshirvani University of Technology</strong> | 2024
+                </p>
+                <p class="presentation-description">
+                    Assisted students in understanding linear algebra concepts and their applications in computer science, including matrix 
+                    operations, vector spaces, eigenvalues and eigenvectors, and their relevance to machine learning and computer graphics. 
+                    Conducted problem-solving sessions, helped students with assignments, and provided additional support during office hours. 
+                    Instructed by Dr. J. Kazemitabar.
+                </p>
+            </div>
+
+            <div class="presentation-card">
+                <h3>Teaching Assistant - Data Structures</h3>
+                <p class="presentation-meta">
+                    <strong>Babol Noshirvani University of Technology</strong> | 2024
+                </p>
+                <p class="presentation-description">
+                    Supported students in learning fundamental and advanced data structures, including arrays, linked lists, stacks, queues, 
+                    trees, graphs, and hash tables. Conducted laboratory sessions where students implemented various data structures and 
+                    algorithms, helped debug code, explained algorithmic complexity, and assisted with project development. 
+                    Instructed by Dr. H. Omranpour.
+                </p>
+            </div>
+
+            <div class="presentation-card">
+                <h3>Teaching Assistant - Introduction to Computer Science and Programming</h3>
+                <p class="presentation-meta">
+                    <strong>Babol Noshirvani University of Technology</strong> | 2023
+                </p>
+                <p class="presentation-description">
+                    Introduced first-year students to fundamental programming concepts and computer science principles. Led programming 
+                    laboratory sessions, assisted students with debugging their code, explained basic algorithms and problem-solving 
+                    strategies, and helped students develop their computational thinking skills. This role involved working with students 
+                    who were new to programming and helping them build a strong foundation. Instructed by Dr. H. Omranpour.
+                </p>
+            </div>
+        </section>
+
+        <section class="collaborations-section">
+            <h2>Competitive Programming</h2>
+            <div class="project-card">
+                <h3>6th AlgoNIT National Programming Contest</h3>
+                <p class="project-meta">Top 6% | 167 Participants</p>
+                <p class="project-description">
+                    Achieved a ranking in the top 6% of participants in the 6th AlgoNIT National Programming Contest, demonstrating strong 
+                    problem-solving skills and competitive programming expertise. The contest tested proficiency in algorithm design, data 
+                    structures, dynamic programming, graph algorithms, and efficient code implementation under time constraints. This achievement 
+                    showcases the ability to think critically, optimize solutions, and perform under pressure.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Competitive Programming</span>
+                    <span class="tag">Algorithms</span>
+                    <span class="tag">Problem Solving</span>
+                    <span class="tag">Data Structures</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="collaborations-section">
+            <h2>Open to Collaboration</h2>
+            <p>
+                I am always open to collaborations on interesting research problems, especially in the areas of machine learning, 
+                deep learning, computer vision, AI in healthcare, and medical imaging. If you're working on something related to my 
+                research interests or have an exciting project idea, feel free to reach out!
+            </p>
+            <p style="margin-top: 1rem;">
+                <strong>Contact:</strong> arianaariaee83@gmail.com
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ariana Ariaei. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/nav.js"></script>
 </body>
 </html>
