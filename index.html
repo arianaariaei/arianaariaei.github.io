@@ -4,61 +4,64 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Name — Homepage</title>
-  <meta name="description" content="Personal site of Your Name: bio, CV, transcript, projects." />
   <link rel="stylesheet" href="./assets/styles.css" />
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <meta name="description" content="Personal site of Your Name: bio, CV, transcript, projects." />
 </head>
 <body>
+  <!-- Shared navigation will be injected here -->
   <div id="nav"></div>
   <script>
-    (async function(){
-      const t=document.getElementById('nav');
-      try{
-        const res=await fetch('./assets/nav.html',{cache:'no-store'});
-        t.innerHTML=await res.text();
-        const map={"":"nav-home","index.html":"nav-home","cv.html":"nav-cv","transcript.html":"nav-transcript","projects.html":"nav-projects"};
-        const id=map[(location.pathname.split('/').pop())||""]||"nav-home";
-        const el=document.getElementById(id); if(el) el.setAttribute('aria-current','page');
-      }catch(e){ console.error(e); }
+    (async function loadNav(){
+      const target = document.getElementById('nav');
+      try {
+        const res = await fetch('./assets/nav.html', { cache: 'no-store' });
+        target.innerHTML = await res.text();
+        const map = {
+          "": "nav-home",
+          "index.html": "nav-home",
+          "cv.html": "nav-cv",
+          "transcript.html": "nav-transcript",
+          "projects.html": "nav-projects"
+        };
+        const path = location.pathname.split('/').pop();
+        const id = map[path ?? ""] || "nav-home";
+        const el = document.getElementById(id);
+        if (el) el.setAttribute("aria-current", "page");
+      } catch(e) {
+        console.error("Failed to load nav:", e);
+      }
     })();
   </script>
 
   <header class="container hero">
     <section class="card">
-      <h1>Hi, I’m Your Name</h1>
-      <p class="meta">Based in City · email@domain.com</p>
-      <p>
-        I’m a <em>your role</em> focusing on <strong>research/fields</strong>. My interests include topic A, topic B,
-        and topic C. This site hosts my CV, transcript, and a selection of projects and presentations.
-      </p>
-      <p>
-        <a class="btn" href="./cv.html">CV (PDF)</a>
-        <a class="btn" href="./projects.html">Projects</a>
-      </p>
+      <h1>Hi, I’m Your Name 👋</h1>
+      <p>One-sentence intro about you. What you study/work on and your interests.</p>
+      <p class="meta">Based in City • email@domain.com • <a class="btn" href="./projects.html">See projects</a></p>
+      <p><kbd>Tip</kbd> Update this text in <code>index.html</code> anytime.</p>
     </section>
-
-    <figure class="figure">
-      <img src="./assets/me.jpg" alt="Portrait of Your Name">
-      <figcaption class="caption">Fig. 1 — Portrait of the author.</figcaption>
-    </figure>
+    <aside>
+      <img class="responsive" src="./assets/me.jpg" alt="Portrait of Your Name" />
+    </aside>
   </header>
 
   <main class="container grid cols-3">
-    <section class="card">
+    <div class="card">
       <h2>Now</h2>
-      <p>Brief note on current appointment, coursework, or research agenda.</p>
-    </section>
-    <section class="card">
-      <h2>Keywords</h2>
-      <p class="small">machine learning; systems; HCI; data visualization; reproducibility</p>
-    </section>
-    <section class="card">
+      <p>What you’re doing right now: research, role, coursework.</p>
+    </div>
+    <div class="card">
+      <h2>Interests</h2>
+      <p>AI, systems, HCI, data viz…</p>
+    </div>
+    <div class="card">
       <h2>Links</h2>
       <p><a href="./cv.html">CV</a> · <a href="./transcript.html">Transcript</a> · <a href="./projects.html">Projects</a></p>
-    </section>
+    </div>
   </main>
 
   <footer><div class="container">© <span id="y"></span> Your Name</div></footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>

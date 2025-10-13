@@ -7,36 +7,47 @@
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
+  <!-- Shared navigation will be injected here -->
   <div id="nav"></div>
   <script>
-    (async function(){
-      const t=document.getElementById('nav');
-      try{
-        const res=await fetch('./assets/nav.html',{cache:'no-store'});
-        t.innerHTML=await res.text();
-        (document.getElementById('nav-transcript')||{}).setAttribute?.('aria-current','page');
-      }catch(e){console.error(e)}
+    (async function loadNav(){
+      const target = document.getElementById('nav');
+      try {
+        const res = await fetch('./assets/nav.html', { cache: 'no-store' });
+        target.innerHTML = await res.text();
+        const map = {
+          "": "nav-home",
+          "index.html": "nav-home",
+          "cv.html": "nav-cv",
+          "transcript.html": "nav-transcript",
+          "projects.html": "nav-projects"
+        };
+        const path = location.pathname.split('/').pop();
+        const id = map[path ?? ""] || "nav-transcript";
+        const el = document.getElementById(id);
+        if (el) el.setAttribute("aria-current", "page");
+      } catch(e) { console.error("Failed to load nav:", e); }
     })();
   </script>
 
   <main class="container">
-    <header class="card">
+    <div class="card">
       <h1>Academic Transcript</h1>
       <p class="meta">Download: <a class="btn" href="./docs/transcript.pdf">transcript.pdf</a></p>
-    </header>
+    </div>
 
-    <section class="card">
+    <div class="card">
       <h2>Summary</h2>
-      <p>Program; expected graduation; cumulative GPA (optional); honors.</p>
-    </section>
+      <p>Program, cumulative GPA (if you want to show it), honors, etc.</p>
+    </div>
 
-    <section class="card">
+    <div class="card">
       <h2>Inline preview</h2>
-      <iframe title="Transcript PDF preview" src="./docs/transcript.pdf" width="100%" height="820" style="border:1px solid #ddd;border-radius:8px;"></iframe>
-    </section>
+      <iframe title="Transcript PDF preview" src="./docs/transcript.pdf" width="100%" height="800" style="border:1px solid #1f2750;border-radius:12px;"></iframe>
+    </div>
   </main>
 
   <footer><div class="container">© <span id="y"></span> Your Name</div></footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
