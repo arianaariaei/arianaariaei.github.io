@@ -1,67 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Homepage</title>
-  <link rel="stylesheet" href="./assets/styles.css" />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-  <meta name="description" content="Personal site of Your Name: bio, CV, transcript, projects." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Academic Portfolio</title>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <!-- Shared navigation will be injected here -->
-  <div id="nav"></div>
-  <script>
-    (async function loadNav(){
-      const target = document.getElementById('nav');
-      try {
-        const res = await fetch('./assets/nav.html', { cache: 'no-store' });
-        target.innerHTML = await res.text();
-        const map = {
-          "": "nav-home",
-          "index.html": "nav-home",
-          "cv.html": "nav-cv",
-          "transcript.html": "nav-transcript",
-          "projects.html": "nav-projects"
-        };
-        const path = location.pathname.split('/').pop();
-        const id = map[path ?? ""] || "nav-home";
-        const el = document.getElementById(id);
-        if (el) el.setAttribute("aria-current", "page");
-      } catch(e) {
-        console.error("Failed to load nav:", e);
-      }
-    })();
-  </script>
+    <div id="nav-placeholder"></div>
+    
+    <main class="container">
+        <section class="hero">
+            <div class="profile-section">
+                <img src="assets/me.jpg" alt="Your Name" class="profile-photo">
+                <div class="intro">
+                    <h1>Your Name</h1>
+                    <p class="title">PhD Student in Computer Science</p>
+                    <p class="affiliation">University Name</p>
+                    <div class="contact">
+                        <p>Email: your.email@university.edu</p>
+                        <p>
+                            <a href="https://github.com/yourusername" target="_blank">GitHub</a> | 
+                            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> | 
+                            <a href="https://scholar.google.com/citations?user=your-id" target="_blank">Google Scholar</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <header class="container hero">
-    <section class="card">
-      <h1>Hi, I’m Your Name 👋</h1>
-      <p>One-sentence intro about you. What you study/work on and your interests.</p>
-      <p class="meta">Based in City • email@domain.com • <a class="btn" href="./projects.html">See projects</a></p>
-      <p><kbd>Tip</kbd> Update this text in <code>index.html</code> anytime.</p>
-    </section>
-    <aside>
-      <img class="responsive" src="./assets/me.jpg" alt="Portrait of Your Name" />
-    </aside>
-  </header>
+        <section class="about">
+            <h2>About Me</h2>
+            <p>
+                Welcome! I am a PhD student at [University Name] working on [your research area]. 
+                My research focuses on [brief description of your research interests and goals].
+            </p>
+            <p>
+                I am particularly interested in [specific topics], and my work has applications in [application areas]. 
+                Prior to my doctoral studies, I completed my [previous degree] at [previous institution].
+            </p>
+        </section>
 
-  <main class="container grid cols-3">
-    <div class="card">
-      <h2>Now</h2>
-      <p>What you’re doing right now: research, role, coursework.</p>
-    </div>
-    <div class="card">
-      <h2>Interests</h2>
-      <p>AI, systems, HCI, data viz…</p>
-    </div>
-    <div class="card">
-      <h2>Links</h2>
-      <p><a href="./cv.html">CV</a> · <a href="./transcript.html">Transcript</a> · <a href="./projects.html">Projects</a></p>
-    </div>
-  </main>
+        <section class="research-interests">
+            <h2>Research Interests</h2>
+            <ul>
+                <li>Research Area 1</li>
+                <li>Research Area 2</li>
+                <li>Research Area 3</li>
+                <li>Research Area 4</li>
+            </ul>
+        </section>
 
-  <footer><div class="container">© <span id="y"></span> Your Name</div></footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+        <section class="news">
+            <h2>Recent News</h2>
+            <ul class="news-list">
+                <li><strong>Oct 2025:</strong> Paper accepted at Conference Name 2025</li>
+                <li><strong>Sep 2025:</strong> Started PhD program at University Name</li>
+                <li><strong>Aug 2025:</strong> Presented research at Workshop Name</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/nav.js"></script>
 </body>
 </html>

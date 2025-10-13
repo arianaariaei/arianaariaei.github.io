@@ -1,77 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — CV</title>
-  <link rel="stylesheet" href="./assets/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Your Name</title>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <!-- Shared navigation will be injected here -->
-  <div id="nav"></div>
-  <script>
-    (async function loadNav(){
-      const target = document.getElementById('nav');
-      try {
-        const res = await fetch('./assets/nav.html', { cache: 'no-store' });
-        target.innerHTML = await res.text();
-        const map = {
-          "": "nav-home",
-          "index.html": "nav-home",
-          "cv.html": "nav-cv",
-          "transcript.html": "nav-transcript",
-          "projects.html": "nav-projects"
-        };
-        const path = location.pathname.split('/').pop();
-        const id = map[path ?? ""] || "nav-cv";
-        const el = document.getElementById(id);
-        if (el) el.setAttribute("aria-current", "page");
-      } catch(e) { console.error("Failed to load nav:", e); }
-    })();
-  </script>
+    <div id="nav-placeholder"></div>
+    
+    <main class="container">
+        <div class="page-header">
+            <h1>Curriculum Vitae</h1>
+            <a href="docs/cv.pdf" class="download-btn" download>Download PDF</a>
+        </div>
 
-  <main class="container">
-    <div class="card">
-      <h1>Curriculum Vitae</h1>
-      <p class="meta">Download: <a class="btn" href="./docs/cv.pdf">cv.pdf</a></p>
-      <p class="meta">Last updated: Month YYYY</p>
-    </div>
+        <section class="cv-section">
+            <h2>Education</h2>
+            <div class="cv-item">
+                <div class="cv-header">
+                    <h3>PhD in Computer Science</h3>
+                    <span class="date">2025 - Present</span>
+                </div>
+                <p class="institution">University Name, City, Country</p>
+                <p>Advisor: Prof. Advisor Name</p>
+                <p>Focus: Your Research Area</p>
+            </div>
+            
+            <div class="cv-item">
+                <div class="cv-header">
+                    <h3>Master of Science in Computer Science</h3>
+                    <span class="date">2023 - 2025</span>
+                </div>
+                <p class="institution">University Name, City, Country</p>
+                <p>GPA: 3.9/4.0</p>
+                <p>Thesis: Your Thesis Title</p>
+            </div>
 
-    <div class="card">
-      <h2>Education</h2>
-      <ul class="list">
-        <li><strong>Degree @ School</strong> — 2021–2025 · GPA/Grade (optional)</li>
-      </ul>
-    </div>
+            <div class="cv-item">
+                <div class="cv-header">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <span class="date">2019 - 2023</span>
+                </div>
+                <p class="institution">University Name, City, Country</p>
+                <p>GPA: 3.8/4.0, Summa Cum Laude</p>
+            </div>
+        </section>
 
-    <div class="card">
-      <h2>Experience</h2>
-      <ul class="list">
-        <li><strong>Role</strong>, Company — 2024–Present<br/>One-line impact statement with a concrete metric.</li>
-        <li><strong>Role</strong>, Company — 2023<br/>Another bullet.</li>
-      </ul>
-    </div>
+        <section class="cv-section">
+            <h2>Publications</h2>
+            <div class="cv-item">
+                <p class="publication">
+                    <strong>Your Name</strong>, Co-Author Name. "Paper Title: Subtitle." 
+                    <em>Conference/Journal Name</em>, 2025.
+                </p>
+            </div>
+            <div class="cv-item">
+                <p class="publication">
+                    Co-Author Name, <strong>Your Name</strong>. "Another Paper Title." 
+                    <em>Conference/Journal Name</em>, 2024.
+                </p>
+            </div>
+        </section>
 
-    <div class="card">
-      <h2>Skills</h2>
-      <p>Languages/Tools: Python, JS/TS, React, PyTorch, SQL…</p>
-    </div>
+        <section class="cv-section">
+            <h2>Research Experience</h2>
+            <div class="cv-item">
+                <div class="cv-header">
+                    <h3>Graduate Research Assistant</h3>
+                    <span class="date">2025 - Present</span>
+                </div>
+                <p class="institution">Lab Name, University Name</p>
+                <ul>
+                    <li>Conducting research on [topic]</li>
+                    <li>Developing novel algorithms for [application]</li>
+                    <li>Collaborating with team on [project]</li>
+                </ul>
+            </div>
+        </section>
 
-    <div class="card">
-      <h2>Publications (if any)</h2>
-      <ul class="list">
-        <li>Author, <em>Title</em>, Venue (Year). <a href="#">PDF</a></li>
-      </ul>
-    </div>
+        <section class="cv-section">
+            <h2>Teaching Experience</h2>
+            <div class="cv-item">
+                <div class="cv-header">
+                    <h3>Teaching Assistant - Course Name</h3>
+                    <span class="date">Fall 2025</span>
+                </div>
+                <p class="institution">University Name</p>
+                <ul>
+                    <li>Led weekly recitation sessions for 30+ students</li>
+                    <li>Graded assignments and provided feedback</li>
+                    <li>Held office hours for student support</li>
+                </ul>
+            </div>
+        </section>
 
-    <div class="card">
-      <h2>Inline preview</h2>
-      <p class="meta">If the PDF doesn’t render, use the download link above.</p>
-      <iframe title="CV PDF preview" src="./docs/cv.pdf" width="100%" height="800" style="border:1px solid #1f2750;border-radius:12px;"></iframe>
-    </div>
-  </main>
+        <section class="cv-section">
+            <h2>Awards & Honors</h2>
+            <ul class="cv-list">
+                <li>Best Paper Award, Conference Name (2025)</li>
+                <li>Graduate Research Fellowship (2025)</li>
+                <li>Summa Cum Laude, Bachelor's Degree (2023)</li>
+                <li>Dean's List, All Semesters (2019-2023)</li>
+            </ul>
+        </section>
 
-  <footer><div class="container">© <span id="y"></span> Your Name</div></footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+        <section class="cv-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div>
+                    <h3>Programming</h3>
+                    <p>Python, Java, C++, JavaScript, R</p>
+                </div>
+                <div>
+                    <h3>Tools & Frameworks</h3>
+                    <p>TensorFlow, PyTorch, Git, Docker, LaTeX</p>
+                </div>
+                <div>
+                    <h3>Languages</h3>
+                    <p>English (Native), French (Fluent), Spanish (Intermediate)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/nav.js"></script>
 </body>
 </html>
