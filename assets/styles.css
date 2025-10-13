@@ -1,24 +1,119 @@
-:root { --bg:#0b1020; --card:#121835; --text:#e8ecff; --muted:#a9b1d6; --accent:#6ea8ff; }
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:linear-gradient(180deg,#0a0f25,#0b1020 40%,#0a0f25);color:var(--text)}
-.container{max-width:960px;margin:auto;padding:24px}
-.nav{background:transparent;border-bottom:1px solid #1f2750;backdrop-filter:blur(6px)}
-.nav .inner{display:flex;align-items:center;gap:16px;max-width:960px;margin:auto;padding:12px 24px}
-.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px}
-.nav a[aria-current="page"], .nav a:hover{color:var(--text);background:#1a2248}
-.brand{margin-right:auto;font-weight:700;color:var(--text)}
-.hero{display:grid;grid-template-columns:1fr 240px;gap:24px;align-items:center}
-.card{background:var(--card);border:1px solid #1f2750;border-radius:16px;padding:20px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
-h1,h2{line-height:1.2;margin:0 0 12px}
-p{margin:0 0 12px;color:var(--muted)}
-img.responsive{display:block;max-width:100%;height:auto;border-radius:12px;border:1px solid #1f2750}
+/* ===== Academic theme ===== */
+:root{
+  --page:#fbfbf7;         /* soft off-white for paper feel */
+  --ink:#111;             /* primary text */
+  --muted:#555;           /* secondary text */
+  --rule:#ddd;            /* hairlines */
+  --link:#0b3d91;         /* academic blue */
+  --link-visited:#5a3e8e;
+  --accent-bg:#eef3ff;    /* subtle highlight */
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--page);
+  color:var(--ink);
+  font:17px/1.65 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* Layout */
+.container{max-width:860px;margin:auto;padding:28px 24px}
+main.container{padding-top:18px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:start}
+@media (max-width:880px){ .hero{grid-template-columns:1fr} }
+
+/* Navigation */
+.nav{
+  position:sticky; top:0; z-index:5;
+  background:rgba(251,251,247,.9);
+  border-bottom:1px solid var(--rule);
+  backdrop-filter:saturate(120%) blur(4px);
+}
+.nav .inner{max-width:860px;margin:auto;display:flex;gap:14px;align-items:center;padding:10px 24px}
+.brand{
+  margin-right:auto;
+  font-variant:small-caps;
+  letter-spacing:.04em;
+  font-weight:600;
+  color:var(--ink);
+  text-decoration:none;
+}
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:6px 8px;
+  border-radius:6px;
+}
+.nav a[aria-current="page"]{
+  color:var(--ink);
+  background:var(--accent-bg);
+}
+.nav a:hover{color:var(--ink);text-decoration:underline}
+
+/* Typography */
+h1,h2,h3{
+  margin:.2em 0 .4em;
+  line-height:1.25;
+  font-weight:650;
+  font-variant:small-caps;
+  letter-spacing:.03em;
+}
+h1{font-size:1.9rem}
+h2{font-size:1.35rem}
+h3{font-size:1.12rem}
+p{margin:.6em 0;color:var(--ink)}
+.meta{color:var(--muted);font-size:.95rem}
+.small{font-size:.92rem;color:var(--muted)}
+a{color:var(--link)}
+a:visited{color:var(--link-visited)}
+code,kbd,pre{
+  font: .95rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+hr{border:0;border-top:1px solid var(--rule);margin:28px 0}
+
+/* Cards become light sections (no heavy drop shadows) */
+.card{
+  background:#fff;
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 18px 16px;
+}
+.figure{margin:0}
+.figure img{display:block;max-width:100%;height:auto;border:1px solid var(--rule);border-radius:8px}
+.caption{margin-top:.4rem;color:var(--muted);font-size:.9rem;text-align:center}
+
+/* Simple grids */
 .grid{display:grid;gap:16px}
 .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-@media (max-width:800px){ .hero{grid-template-columns:1fr} .grid.cols-3{grid-template-columns:1fr} .grid.cols-2{grid-template-columns:1fr} }
-.btn{display:inline-block;background:var(--accent);color:#0c122c;padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;border:0}
-.meta{font-size:14px;color:var(--muted)}
-.list{display:grid;gap:12px}
-.project{display:flex;flex-direction:column;gap:8px}
-kbd{background:#101735;border:1px solid #1f2750;border-radius:6px;padding:2px 6px;font:12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}
-footer{padding:40px 0;color:var(--muted);text-align:center}
+@media (max-width:880px){ .grid.cols-3,.grid.cols-2{grid-template-columns:1fr} }
+
+/* Buttons -> look like scholarly links */
+.btn{
+  display:inline-block;
+  padding:6px 10px;
+  border:1px solid var(--link);
+  border-radius:8px;
+  color:var(--link);
+  text-decoration:none;
+  background:transparent;
+}
+.btn:hover{background:var(--accent-bg);text-decoration:none}
+
+/* Lists */
+.list{padding-left:1.1rem}
+.list li{margin:.4rem 0}
+
+/* Footer */
+footer{padding:36px 0;border-top:1px solid var(--rule);color:var(--muted);text-align:center}
+
+/* Print: remove nav bg, make links visible */
+@media print{
+  .nav{position:static;background:#fff}
+  .btn{border:0;padding:0}
+  a[href]:after{content:" <" attr(href) ">"; font-size:.85em; color:#888}
+}

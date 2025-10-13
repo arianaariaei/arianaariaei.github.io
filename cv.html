@@ -7,71 +7,66 @@
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
-  <!-- Shared navigation will be injected here -->
   <div id="nav"></div>
   <script>
-    (async function loadNav(){
-      const target = document.getElementById('nav');
-      try {
-        const res = await fetch('./assets/nav.html', { cache: 'no-store' });
-        target.innerHTML = await res.text();
-        const map = {
-          "": "nav-home",
-          "index.html": "nav-home",
-          "cv.html": "nav-cv",
-          "transcript.html": "nav-transcript",
-          "projects.html": "nav-projects"
-        };
-        const path = location.pathname.split('/').pop();
-        const id = map[path ?? ""] || "nav-cv";
-        const el = document.getElementById(id);
-        if (el) el.setAttribute("aria-current", "page");
-      } catch(e) { console.error("Failed to load nav:", e); }
+    (async function(){
+      const t=document.getElementById('nav');
+      const map={"":"nav-home","index.html":"nav-home","cv.html":"nav-cv","transcript.html":"nav-transcript","projects.html":"nav-projects"};
+      try{
+        const res=await fetch('./assets/nav.html',{cache:'no-store'});
+        t.innerHTML=await res.text();
+        (document.getElementById(map["cv.html"])||{}).setAttribute?.('aria-current','page');
+      }catch(e){console.error(e)}
     })();
   </script>
 
   <main class="container">
-    <div class="card">
+    <header class="card">
       <h1>Curriculum Vitae</h1>
-      <p class="meta">Download: <a class="btn" href="./docs/cv.pdf">cv.pdf</a></p>
-      <p class="meta">Last updated: Month YYYY</p>
-    </div>
+      <p class="meta">Download: <a class="btn" href="./docs/cv.pdf">cv.pdf</a> · Last updated: Month YYYY</p>
+    </header>
 
-    <div class="card">
+    <section class="card">
       <h2>Education</h2>
       <ul class="list">
-        <li><strong>Degree @ School</strong> — 2021–2025 · GPA/Grade (optional)</li>
+        <li><strong>Degree, University</strong>, City — 2021–2025 · GPA/Grade (optional)</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2>Experience</h2>
+    <section class="card">
+      <h2>Appointments</h2>
       <ul class="list">
-        <li><strong>Role</strong>, Company — 2024–Present<br/>One-line impact statement with a concrete metric.</li>
-        <li><strong>Role</strong>, Company — 2023<br/>Another bullet.</li>
+        <li><strong>Role</strong>, Dept/Org — 2024–Present</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2>Skills</h2>
-      <p>Languages/Tools: Python, JS/TS, React, PyTorch, SQL…</p>
-    </div>
+    <section class="card">
+      <h2>Publications</h2>
+      <ul class="list small">
+        <li>Your Name, Coauthor. “Paper Title.” <em>Venue</em>, Year. <a href="#">PDF</a></li>
+      </ul>
+    </section>
 
-    <div class="card">
-      <h2>Publications (if any)</h2>
+    <section class="card">
+      <h2>Teaching</h2>
       <ul class="list">
-        <li>Author, <em>Title</em>, Venue (Year). <a href="#">PDF</a></li>
+        <li>Course Title — TA, Term</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="card">
+      <h2>Selected Skills</h2>
+      <p class="small">Python; JS/TS; React; PyTorch; SQL; LaTeX; Git</p>
+    </section>
+
+    <section class="card">
       <h2>Inline preview</h2>
-      <p class="meta">If the PDF doesn’t render, use the download link above.</p>
-      <iframe title="CV PDF preview" src="./docs/cv.pdf" width="100%" height="800" style="border:1px solid #1f2750;border-radius:12px;"></iframe>
-    </div>
+      <p class="small">If the embed fails on mobile, use the PDF link above.</p>
+      <iframe title="CV PDF preview" src="./docs/cv.pdf" width="100%" height="820" style="border:1px solid #ddd;border-radius:8px;"></iframe>
+    </section>
   </main>
 
   <footer><div class="container">© <span id="y"></span> Your Name</div></footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>

@@ -7,61 +7,50 @@
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
-  <!-- Shared navigation will be injected here -->
   <div id="nav"></div>
   <script>
-    (async function loadNav(){
-      const target = document.getElementById('nav');
-      try {
-        const res = await fetch('./assets/nav.html', { cache: 'no-store' });
-        target.innerHTML = await res.text();
-        const map = {
-          "": "nav-home",
-          "index.html": "nav-home",
-          "cv.html": "nav-cv",
-          "transcript.html": "nav-transcript",
-          "projects.html": "nav-projects"
-        };
-        const path = location.pathname.split('/').pop();
-        const id = map[path ?? ""] || "nav-projects";
-        const el = document.getElementById(id);
-        if (el) el.setAttribute("aria-current", "page");
-      } catch(e) { console.error("Failed to load nav:", e); }
+    (async function(){
+      const t=document.getElementById('nav');
+      try{
+        const res=await fetch('./assets/nav.html',{cache:'no-store'});
+        t.innerHTML=await res.text();
+        (document.getElementById('nav-projects')||{}).setAttribute?.('aria-current','page');
+      }catch(e){console.error(e)}
     })();
   </script>
 
   <main class="container">
-    <div class="card">
+    <header class="card">
       <h1>Projects & Presentations</h1>
-      <p class="meta">A selection of recent work. Each card can link to GitHub, a demo, or slides.</p>
-    </div>
+      <p class="meta">Selected work. Links point to repositories, demos, or slide decks.</p>
+    </header>
 
     <section class="grid cols-2">
-      <article class="card project">
+      <article class="card">
         <h2>Project A</h2>
-        <p>One-paragraph description of what it does and why it’s interesting.</p>
-        <p class="meta">Tech: React, Flask</p>
+        <p class="small"><em>Short, result-focused description (methods, data, findings).</em></p>
+        <p class="small">Tech: React, Flask</p>
         <p>
           <a class="btn" href="https://github.com/USERNAME/REPO" target="_blank" rel="noopener">Code</a>
           <a class="btn" href="https://example.com/demo" target="_blank" rel="noopener">Demo</a>
         </p>
       </article>
 
-      <article class="card project">
-        <h2>Project B</h2>
-        <p>Brief description and your role/contribution.</p>
-        <p class="meta">Tech: PyTorch, Lightning</p>
+      <article class="card">
+        <h2>Project B (Talk)</h2>
+        <p class="small">Brief synopsis of goals, approach, and contribution.</p>
+        <p class="small">Tech: PyTorch, Lightning</p>
         <p>
           <a class="btn" href="https://github.com/USERNAME/REPO2" target="_blank" rel="noopener">Code</a>
           <a class="btn" href="./docs/presentation-b.pdf">Slides</a>
         </p>
       </article>
 
-      <!-- Duplicate these blocks for more items -->
+      <!-- Duplicate article blocks as needed -->
     </section>
   </main>
 
   <footer><div class="container">© <span id="y"></span> Your Name</div></footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
