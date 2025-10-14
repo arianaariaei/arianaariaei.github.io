@@ -1,53 +1,420 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Transcript</title>
-  <link rel="stylesheet" href="./assets/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcript - Ariana Ariaei</title>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <!-- Shared navigation will be injected here -->
-  <div id="nav"></div>
-  <script>
-    (async function loadNav(){
-      const target = document.getElementById('nav');
-      try {
-        const res = await fetch('./assets/nav.html', { cache: 'no-store' });
-        target.innerHTML = await res.text();
-        const map = {
-          "": "nav-home",
-          "index.html": "nav-home",
-          "cv.html": "nav-cv",
-          "transcript.html": "nav-transcript",
-          "projects.html": "nav-projects"
-        };
-        const path = location.pathname.split('/').pop();
-        const id = map[path ?? ""] || "nav-transcript";
-        const el = document.getElementById(id);
-        if (el) el.setAttribute("aria-current", "page");
-      } catch(e) { console.error("Failed to load nav:", e); }
-    })();
-  </script>
+    <div id="nav-placeholder"></div>
+    
+    <main class="container">
+        <div class="page-header">
+            <h1>Academic Transcript</h1>
+            <a href="docs/Transcript.pdf" class="download-btn" download>Download Official PDF</a>
+        </div>
 
-  <main class="container">
-    <div class="card">
-      <h1>Academic Transcript</h1>
-      <p class="meta">Download: <a class="btn" href="./docs/Transcript.pdf">transcript.pdf</a></p>
-    </div>
+        <div style="background-color: var(--light-gray); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+            <h2 style="margin-top: 0; color: var(--primary-color);">Bachelor of Science in Computer Engineering</h2>
+            <p><strong>Student Name:</strong> Ariana Ariaei</p>
+            <p><strong>Student ID:</strong> 40130212095</p>
+            <p><strong>University:</strong> Babol Noshirvani University of Technology</p>
+            <p><strong>Duration:</strong> 2022 - Present</p>
+            <p class="note" style="margin-top: 1rem; margin-bottom: 0;"><em>This is an unofficial English translation prepared by the student for reference purposes. Grades are shown in Iranian system (0-20 scale) with US equivalent.</em></p>
+        </div>
 
-    <div class="card">
-      <h2>Summary</h2>
-      <p>Program, cumulative GPA (if you want to show it), honors, etc.</p>
-    </div>
+        <section class="transcript-section">
+            <div class="semester">
+                <h3>Semester 1 (Fall 2022)</h3>
+                <table class="transcript-table">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Grade</th>
+                            <th>US Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Calculus I</td>
+                            <td>3</td>
+                            <td>10</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>Physics I (Mechanics and Waves)</td>
+                            <td>3</td>
+                            <td>10</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>English Language</td>
+                            <td>3</td>
+                            <td>19</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Introduction to Computer Science and Programming</td>
+                            <td>3</td>
+                            <td>13.5</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>Family and Population Studies</td>
+                            <td>2</td>
+                            <td>17</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Computer Programming Laboratory</td>
+                            <td>1</td>
+                            <td>20</td>
+                            <td>A+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-    <div class="card">
-      <h2>Inline preview</h2>
-      <iframe title="Transcript PDF preview" src="./docs/Transcript.pdf" width="100%" height="800" style="border:1px solid #1f2750;border-radius:12px;"></iframe>
-    </div>
-  </main>
+            <div class="semester">
+                <h3>Semester 2 (Spring 2023)</h3>
+                <table class="transcript-table">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Grade</th>
+                            <th>US Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Physics II (Electricity and Magnetism)</td>
+                            <td>3</td>
+                            <td>12</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>Advanced Programming</td>
+                            <td>3</td>
+                            <td>17.5</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Thematic Interpretation of Nahj al-Balagha (Texts)</td>
+                            <td>2</td>
+                            <td>16.5</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Discrete Mathematics</td>
+                            <td>3</td>
+                            <td>15.04</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>Physical Education</td>
+                            <td>1</td>
+                            <td>19.5</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Advanced Programming Laboratory</td>
+                            <td>1</td>
+                            <td>20</td>
+                            <td>A+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-  <footer><div class="container">© <span id="y"></span> Your Name</div></footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+            <div class="semester">
+                <h3>Summer 2023</h3>
+                <table class="transcript-table">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Grade</th>
+                            <th>US Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Calculus II</td>
+                            <td>3</td>
+                            <td>12</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>Differential Equations</td>
+                            <td>3</td>
+                            <td>11.5</td>
+                            <td>D</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="semester">
+                <h3>Semester 3 (Fall 2023)</h3>
+                <table class="transcript-table">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Grade</th>
+                            <th>US Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Physics II Laboratory</td>
+                            <td>1</td>
+                            <td>17.5</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Data Structures</td>
+                            <td>3</td>
+                            <td>13</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>Introduction to Constitution of the Islamic Republic of Iran</td>
+                            <td>2</td>
+                            <td>19</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Engineering Statistics and Probability</td>
+                            <td>3</td>
+                            <td>11.47</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>Digital Logic Circuits</td>
+                            <td>3</td>
+                            <td>16.6</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Electrical and Electronic Circuits</td>
+                            <td>3</td>
+                            <td>10.35</td>
+                            <td>D</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="semester">
+                <h3>Semester 4 (Spring 2024)</h3>
+                <table class="transcript-table">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Grade</th>
+                            <th>US Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Algorithm Design</td>
+                            <td>3</td>
+                            <td>14.9</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>Formal Languages and Automata Theory</td>
+                            <td>3</td>
+                            <td>18.5</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Database Systems</td>
+                            <td>3</td>
+                            <td>17.23</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Technical English</td>
+                            <td>2</td>
+                            <td>20</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Applied Ethics</td>
+                            <td>2</td>
+                            <td>16.5</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Computer Architecture</td>
+                            <td>3</td>
+                            <td>18</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Applied Linear Algebra</td>
+                            <td>3</td>
+                            <td>19.5</td>
+                            <td>A+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="semester">
+                <h3>Semester 5 (Fall 2024)</h3>
+                <table class="transcript-table">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Grade</th>
+                            <th>US Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Operating Systems</td>
+                            <td>3</td>
+                            <td>14.4</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>History of the Imamate</td>
+                            <td>2</td>
+                            <td>15</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>Digital System Design</td>
+                            <td>3</td>
+                            <td>14</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>Software Systems Analysis and Design</td>
+                            <td>3</td>
+                            <td>19.6</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Microprocessor System Design</td>
+                            <td>3</td>
+                            <td>19.1</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Fundamentals and Applications of Artificial Intelligence</td>
+                            <td>3</td>
+                            <td>17.19</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Web and Mobile Programming</td>
+                            <td>3</td>
+                            <td>16</td>
+                            <td>A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="semester">
+                <h3>Semester 6 (Spring 2025)</h3>
+                <table class="transcript-table">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Grade</th>
+                            <th>US Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Signals and Systems</td>
+                            <td>3</td>
+                            <td>14.25</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>Islamic Thought I - Origin and Resurrection</td>
+                            <td>2</td>
+                            <td>18.75</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Software Engineering</td>
+                            <td>3</td>
+                            <td>16.23</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Principles of Compiler Design</td>
+                            <td>3</td>
+                            <td>19.6</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Operating Systems Laboratory</td>
+                            <td>1</td>
+                            <td>19.5</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Research Methods and Presentation</td>
+                            <td>2</td>
+                            <td>18</td>
+                            <td>A+</td>
+                        </tr>
+                        <tr>
+                            <td>Fundamentals of Information Retrieval</td>
+                            <td>3</td>
+                            <td>13.75</td>
+                            <td>C</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="semester">
+                <h3>Summer 2025</h3>
+                <table class="transcript-table">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>Credits</th>
+                            <th>Grade</th>
+                            <th>US Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Internship (Computer Engineering)</td>
+                            <td>1</td>
+                            <td>20</td>
+                            <td>A+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <p style="text-align: center; color: #666; margin-top: 3rem; font-style: italic;">
+            Translated by: Ariana Ariaei | Date: October 12, 2025
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ariana Ariaei. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/nav.js"></script>
 </body>
 </html>
