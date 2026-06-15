@@ -15,16 +15,20 @@
     --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #fff;
+    background-color: #fbfaff;
 }
 
 /* Navigation */
 nav {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
     padding: 1rem 0;
     box-shadow: var(--shadow);
     position: sticky;
@@ -72,6 +76,11 @@ nav ul li a.active {
 /* Homepage Styles */
 .hero {
     margin: 2rem 0 3rem 0;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #faf5ff 0%, #f4f6f9 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
 }
 
 .profile-section {
@@ -86,7 +95,8 @@ nav ul li a.active {
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border: 5px solid #fff;
+    box-shadow: 0 0 0 4px var(--accent-color), 0 6px 16px rgba(124, 58, 237, 0.25);
 }
 
 .intro h1 {
@@ -137,7 +147,8 @@ section h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--secondary-color);
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, var(--secondary-color), var(--accent-color)) 1;
 }
 
 .about p,
@@ -218,7 +229,8 @@ section h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--secondary-color);
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, var(--secondary-color), var(--accent-color)) 1;
 }
 
 .cv-item {
@@ -318,7 +330,8 @@ section h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--secondary-color);
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, var(--secondary-color), var(--accent-color)) 1;
 }
 
 .degree-info {
@@ -394,7 +407,8 @@ section h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--secondary-color);
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, var(--secondary-color), var(--accent-color)) 1;
 }
 
 .project-card,
@@ -446,9 +460,17 @@ section h2 {
     padding: 0.4rem 0.8rem;
     background-color: var(--light-gray);
     color: var(--primary-color);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 500;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.tag:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-color: var(--secondary-color);
 }
 
 .project-links,
@@ -482,7 +504,7 @@ section h2 {
 
 /* Footer */
 footer {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
     color: white;
     text-align: center;
     padding: 2rem;
