@@ -69,7 +69,124 @@
 
         <section class="projects-section">
             <h2>Academic Projects</h2>
-            
+
+            <div class="project-card">
+                <h3>Deep Learning for Automatic Sleep-Stage Classification from EEG Signals</h3>
+                <p class="project-meta">2026 | Deep Learning &amp; Biomedical Signal Processing</p>
+                <p class="project-description">
+                    Built a deep learning pipeline that automatically classifies sleep stages (Wake, NREM, REM) from EEG and EMG
+                    recordings, reaching 86.7% accuracy on unseen animals using the OpenNeuro ds006366 dataset (92 subjects, ~128K
+                    labeled 4-second epochs). Four architectures were designed and compared — an MLP baseline on handcrafted features,
+                    a 1D CNN over raw signals, a CNN combined with a bidirectional LSTM, and a CNN-backbone Transformer. The work
+                    emphasizes rigorous methodology: subject-level splits to prevent data leakage, class-weighted loss to handle the
+                    severe 7% REM imbalance, global normalization, temporal context modeling, and GPU-accelerated augmentation, with
+                    thorough evaluation through confusion matrices, ROC curves, and per-subject metrics.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">EEG Analysis</span>
+                    <span class="tag">CNN-LSTM</span>
+                    <span class="tag">Transformers</span>
+                    <span class="tag">Signal Processing</span>
+                    <span class="tag">Healthcare AI</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/arianaariaei/Deep-Learning-Model-for-Prediction-of-Rats-Sleep-Staging-Based-on-EEG-Signals" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Real-Time Driver Drowsiness Detection</h3>
+                <p class="project-meta">2026 | Computer Vision &amp; Deep Learning</p>
+                <p class="project-description">
+                    Developed a real-time system that detects driver drowsiness from video by recognizing sustained eye closure while
+                    filtering out normal blinks. The pipeline combines MediaPipe's Face Landmarker to locate and crop eye regions with
+                    a CNN eye-state classifier trained on the MRL Eye Dataset, achieving 97.4% accuracy and 97.5% recall on closed
+                    eyes to prioritize safety. A temporal filtering mechanism raises alerts only when the closed-eye probability stays
+                    above threshold for a configurable duration, and the system works with recorded video, webcam feeds, or live streams.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">MediaPipe</span>
+                    <span class="tag">OpenCV</span>
+                    <span class="tag">CNN</span>
+                    <span class="tag">Python</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/arianaariaei/driver_drowsiness_project" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Network Intrusion Detection with Machine Learning</h3>
+                <p class="project-meta">2026 | Machine Learning &amp; Cybersecurity</p>
+                <p class="project-description">
+                    Designed an end-to-end machine learning pipeline that classifies network connections as normal or malicious using
+                    the KDD Cup 1999 dataset, refining roughly 494K raw records into 145K clean samples across 41 features. The 12-stage
+                    workflow covers exploratory analysis, missing-value imputation, quantile-based outlier clipping, one-hot encoding,
+                    standard scaling, Truncated SVD dimensionality reduction, and MiniBatch K-Means clustering, followed by a comparison
+                    of Dummy, Logistic Regression, and Random Forest classifiers. The Random Forest model reached 99.91% accuracy with a
+                    1.0 ROC-AUC for attack detection, supported by detailed metrics and visualizations.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">scikit-learn</span>
+                    <span class="tag">Data Mining</span>
+                    <span class="tag">Random Forest</span>
+                    <span class="tag">Cybersecurity</span>
+                    <span class="tag">Python</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/arianaariaei/network-intrusion-detection" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>TestCore: Exam Management &amp; Analytics Platform</h3>
+                <p class="project-meta">2025 | Full-Stack Web Development</p>
+                <p class="project-description">
+                    Built a full-stack exam management platform that lets users register exams, track their performance over time, and
+                    access analytics, with an administrative panel for institutional oversight including subject popularity, score
+                    distributions, and activity metrics. The application pairs a React frontend with a FastAPI backend and a PostgreSQL
+                    database, using a cleanly separated client-server architecture to serve both user-facing exam tracking and
+                    administrative reporting.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Full-Stack Development</span>
+                    <span class="tag">React</span>
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">REST API</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/arianaariaei/TestCore" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Bubble Sheet Scanner: Automated Exam Grading</h3>
+                <p class="project-meta">2025 | Computer Vision &amp; Image Processing</p>
+                <p class="project-description">
+                    Created an application that scans and automatically grades bubble sheets used in multiple-choice examinations.
+                    Using image processing techniques in Python, the system detects and interprets filled bubbles from scanned answer
+                    sheets and computes scores, streamlining what is otherwise a tedious manual grading process.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">Image Processing</span>
+                    <span class="tag">OpenCV</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">Python</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/arianaariaei/Bubble-Sheet-Scanner" target="_blank">GitHub</a>
+                </div>
+            </div>
+
             <div class="project-card">
                 <h3>Scam Sleuth: AI-Powered Scam Reporting and Detection Platform</h3>
                 <p class="project-meta">2024-2025 | Full-Stack Web Development & AI</p>
